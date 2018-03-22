@@ -20,6 +20,8 @@
 
 -(bool)deleteBatch:(NSArray *)keys;
 
+-(NSArray*)allKeys;
+
 -(NSArray *)iterate:(NSString *)key;
 
 -(void)close;

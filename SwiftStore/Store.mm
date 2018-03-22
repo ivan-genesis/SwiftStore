@@ -62,6 +62,19 @@ using namespace std;
   }
 }
 
+-(NSArray*)allKeys {
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    leveldb::Iterator* it = db->NewIterator(leveldb::ReadOptions());
+    for (it->SeekToFirst(); it->Valid(); it->Next()) {
+        NSString *value = [[NSString alloc] initWithCString:it->key().ToString().c_str() encoding:[NSString defaultCStringEncoding]];
+        [array addObject:value];
+    }
+    assert(it->status().ok());  // Check for any errors found during the scan
+    delete it;
+    
+    return array;
+}
+
 -(NSArray *)iterate:(NSString *)key {
   leveldb::ReadOptions readOptions;
   leveldb::Iterator *it = db->NewIterator(readOptions);

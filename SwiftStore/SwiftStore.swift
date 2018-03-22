@@ -9,36 +9,40 @@
 import Foundation
 
 open class SwiftStore {
-  
-  var db:Store!
-  
-  public init(storeName: String) {
-    db = Store(dbName: storeName)
-  }
-  
-  public subscript(key: String) -> String? {
-    get {
-      return db.get(key)
+    
+    var db:Store!
+    
+    public init(storeName: String) {
+        db = Store(dbName: storeName)
     }
     
-    set(newValue) {
-      db.put(key, value: newValue!)
+    public subscript(key: String) -> String? {
+        get {
+            return db.get(key)
+        }
+        
+        set(newValue) {
+            db.put(key, value: newValue!)
+        }
     }
-  }
-  
-  public func delete(key: String) -> Bool {
-    return db.delete(key)
-  }
-  
-  public func collect(key: String) -> [String] {
-    return db.iterate(key) as! [String]
-  }
-  
-  public func deleteCollection(keys: [String]) -> Bool {
-    return db.deleteBatch(keys)
-  }
-  
-  public func close() {
-    db.close()
-  }
+    
+    public func delete(key: String) -> Bool {
+        return db.delete(key)
+    }
+    
+    public func collect(key: String) -> [String] {
+        return db.iterate(key) as! [String]
+    }
+    
+    public func collectAllKeys() -> [String] {
+        return db.allKeys() as! [String]
+    }
+    
+    public func deleteCollection(keys: [String]) -> Bool {
+        return db.deleteBatch(keys)
+    }
+    
+    public func close() {
+        db.close()
+    }
 }
