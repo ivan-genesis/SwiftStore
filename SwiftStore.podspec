@@ -13,10 +13,13 @@ Pod::Spec.new do |s|
   s.vendored_libraries = 'leveldb/libleveldb.a'
   s.vendored_frameworks  = 'SwiftStore.framework'
   s.preserve_paths = 'leveldb/**'
+  s.library = 'c++'
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/SwiftStore/**' }
   s.public_header_files = 'SwiftStore.framework/Versions/A/Headers/*.h'
   s.xcconfig            = {
     'FRAMEWORK_SEARCH_PATHS' => '"${PODS_ROOT}/SwiftStore"',
-    'LD_RUNPATH_SEARCH_PATHS' => '@loader_path/../Frameworks'
+    'LD_RUNPATH_SEARCH_PATHS' => '@loader_path/../Frameworks',
+    'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
+    'CLANG_CXX_LIBRARY' => 'libc++'
   }
 end
