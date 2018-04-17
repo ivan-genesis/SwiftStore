@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.vendored_libraries = 'leveldb/libleveldb.a'
   s.vendored_frameworks  = 'SwiftStore.framework'
   s.preserve_paths = 'leveldb/**'
-  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/leveldb/**' }
+  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/SwiftStore/**' }
   s.public_header_files = 'SwiftStore.framework/Versions/A/Headers/*.h'
   s.xcconfig            = {
     'FRAMEWORK_SEARCH_PATHS' => '"${PODS_ROOT}/SwiftStore"',
