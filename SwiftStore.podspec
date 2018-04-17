@@ -16,6 +16,7 @@ Pod::Spec.new do |s|
   s.library = 'c++'
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '${PODS_ROOT}/SwiftStore/**' }
   s.public_header_files = 'SwiftStore.framework/Versions/A/Headers/*.h'
+  s.public_cpp_header_files = 'SwiftStore.framework/Versions/A/Headers/*.h'
   s.xcconfig            = {
     'FRAMEWORK_SEARCH_PATHS' => '"${PODS_ROOT}/SwiftStore"',
     'LD_RUNPATH_SEARCH_PATHS' => '@loader_path/../Frameworks',
